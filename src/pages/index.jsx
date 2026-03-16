@@ -11,6 +11,7 @@ import { PrivateInfo } from "@/components/steps/Index";
 import { ContactInfo } from "@/components/steps/ContactInfo";
 import { ProfileImage } from "@/components/steps/Index";
 import { Success } from "@/components/steps/Index";
+import { deleteDataFromLocalStoage } from "../utils/localStorage";
 
 const Home = () => {
   const [step, setStep] = useState(0);
@@ -37,8 +38,9 @@ const Home = () => {
 
     saveFormValues(formValues, step + 1);
 
-    if (step === max - 1) {
-      console.log("SUBMIT DATA:", formValues);
+    if (step === 2) {
+      deleteDataFromLocalStoage();
+      handleClick();
     } else {
       handleClick();
     }
